@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  type: 
+  access_token: MyString
+  user_id: 1
+  expires_at: 2013-03-11 17:09:47
+
+two:
+  type: 
+  access_token: MyString
+  user_id: 1
+  expires_at: 2013-03-11 17:09:47
