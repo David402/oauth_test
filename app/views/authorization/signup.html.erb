@@ -1,3 +1,7 @@
+<% if @err_msg %>
+  <h1><%= @err_msg %></h1>
+<% end %>
+
 <form action="post_signup" method="POST">
   username: <input type="text" name="username">
   password: <input type="password" name="password">

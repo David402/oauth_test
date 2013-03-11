@@ -10,10 +10,14 @@ Hello::Application.routes.draw do
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
 
-  match 'cb_authorize' => 'authorization#authorize', via: :get
+  # Authentication and Authorization
+  match 'authorize' => 'authorization#authorize', via: :get
   match 'login' => 'authorization#login', via: :post
   match 'signup' => 'authorization#signup', via: :get
   match 'post_signup' => 'authorization#post_signup', via: :post
+
+  # Api
+  match 'api/me' => 'api#me', via: :get
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products

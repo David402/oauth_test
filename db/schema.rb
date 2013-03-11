@@ -11,23 +11,42 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130311090947) do
+ActiveRecord::Schema.define(:version => 20130311131811) do
 
   create_table "auths", :force => true do |t|
+    t.integer  "client_id",    :null => false
+    t.integer  "user_id",      :null => false
+    t.string   "access_token", :null => false
+    t.datetime "expires_at",   :null => false
     t.string   "type"
-    t.string   "access_token"
-    t.integer  "user_id"
-    t.datetime "expires_at"
+    t.string   "code"
+    t.text     "scope"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
 
+  add_index "auths", ["access_token"], :name => "index_auths_on_access_token", :unique => true
+  add_index "auths", ["client_id", "user_id"], :name => "index_auths_on_client_id_and_user_id", :unique => true
+
+  create_table "clients", :force => true do |t|
+    t.string   "app_id",       :null => false
+    t.string   "app_secret",   :null => false
+    t.string   "name",         :null => false
+    t.text     "redirect_uri"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "clients", ["app_id"], :name => "index_clients_on_app_id", :unique => true
+
   create_table "users", :force => true do |t|
-    t.string   "username"
-    t.string   "password"
+    t.string   "username",   :null => false
+    t.string   "password",   :null => false
     t.string   "email"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  add_index "users", ["username"], :name => "index_users_on_username", :unique => true
 
 end

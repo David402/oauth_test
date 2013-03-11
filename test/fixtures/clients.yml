@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  app_id: MyString
+  app_secret: MyString
+  name: MyString
+  redirect_uri: MyText
+
+two:
+  app_id: MyString
+  app_secret: MyString
+  name: MyString
+  redirect_uri: MyText
